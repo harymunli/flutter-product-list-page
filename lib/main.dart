@@ -1,31 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
+import 'package:product_list_page/services.dart';
+import 'package:product_list_page/model.dart';
 
 void main() {
   runApp(GetMaterialApp(home: Home()));
 }
 
-class API extends GetConnect {
-  Future<String> getProducts() async {
-    final url = Uri.parse('https://fakestoreapi.com/products');
-    final http.Response response = await http.get(url);
-
-    if (response.statusCode == 200) {
-      print(response.body);
-      return response.body;
-    } else {
-      print("Status code: " + response.statusCode.toString());
-      print(response.body);
-
-      return "Error";
-    }
-  }
-}
-
 class Controller extends GetxController {
   var count = 0.obs;
-  var json = "loading".obs;
+  List<Product> productList = [];
 
   @override
   void onInit() {
@@ -33,7 +17,11 @@ class Controller extends GetxController {
     fetchAPI();
   }
 
-  fetchAPI() async => await API().getProducts().then((val) => json.value = val);
+  fetchAPI() async {
+    await API().getProducts().then((val) => productList = val);
+    print(productList);
+  }
+
   increment() => count++;
 }
 
@@ -63,6 +51,12 @@ class Other extends StatelessWidget {
   @override
   Widget build(context) {
     // Access the updated count variable
-    return Scaffold(body: Center(child: Text("${c.json}")));
+    return Scaffold(
+        body: ListView(
+      children: [
+        for (int i = 0; i < c.productList.length; i++)
+          Text(c.productList[i].title)
+      ],
+    ));
   }
 }
