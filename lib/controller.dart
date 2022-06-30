@@ -7,19 +7,8 @@ import 'package:product_list_page/model.dart';
 class Controller extends GetxController {
   late BuildContext context;
   List<Product> productList = [];
-
-  // //const number for mobile
-  // var spaceBetweenCard = 10.obs;
-  // //fs = Font Size
-  // var fsPrice = 16.obs;
-  // var fsTitle = 12.obs;
-  // var fsDesc = 10.obs;
-
+  
   Controller(this.context);
-  // this.spaceBetweenCard.value = 20;
-  // this.fsPrice.value = 24;
-  // this.fsTitle.value = 15;
-  // this.fsDesc.value = 13;
 
   @override
   void onInit() {
