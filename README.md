@@ -1,16 +1,24 @@
-# product_list_page
+# Product List Page
 
-A new Flutter project.
+Flutter one page app, serving endpoint https://fakestoreapi.com/products
 
-## Getting Started
+## Supported Devicee
 
-This project is a starting point for a Flutter application.
+Mobile and Tablet device with minimum Android 4.1 (API level 16) or iOS 9.0. 
 
-A few resources to get you started if this is your first Flutter project:
+## Supported Feature
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- List of Product with price, item name, description and rating from endpoint https://fakestoreapi.com/products
+- Responsive mobile app
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Requirement to build app
+
+- Operating Systems: Windows 10 or later (64-bit), x86-64 based.
+- Disk Space: 1.64 GB (does not include disk space for IDE/tools).
+- Tools: Flutter depends on these tools being available in your environment.
+
+## Instructions to build and deploy the app in Playstore
+
+1) Run "flutter build appbundle"
+2) Search directory [project]/build/app/outputs/bundle/release/app.aab
+3) Publish in registered account on Google Play launch
