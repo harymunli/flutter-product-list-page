@@ -7,7 +7,7 @@ class API {
     final http.Response response = await http.get(url);
 
     if (response.statusCode == 200) {
-      print(response.body);
+      print("http request success");
       return productResponseFromJSON(response.body);
     } else {
       print("Status code: " + response.statusCode.toString());
